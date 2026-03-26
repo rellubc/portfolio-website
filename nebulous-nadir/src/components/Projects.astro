@@ -1,0 +1,59 @@
+---
+import Project from "./projects/Project.astro";
+import SectionHeader from "./shared/SectionHeader.astro";
+---
+
+<section id="projects">
+    <SectionHeader label="Projects" title="Some projects I have worked on so far"/>
+
+    <div class="project-listings">
+        <Project 
+            title={"Sydney Transport Realtime Tracker"}
+            date={"January 2026 - Present"}
+            roles={[]}
+            description={"A real-time tracker for the Sydney Trains and Sydney Metro networks, including real-time stopping patterns, schedules and occupancies for both vehicles and stations."}
+            tech={["Angular", "ASP.NET Core", "MySQL"]}
+            shortname={"transport"}
+        />
+        <Project 
+            title={"Baked By Dora: Bakery & Cafe"}
+            date={"November 2025 - January 2026"}
+            roles={["Full Stack Lead"]}
+            description={"A full-stack web application for Baked By Dora, featuring a menu page and an online ordering system through email orders."}
+            tech={["Next.js", "Supabase", "Tailwind CSS"]}
+            shortname={"bbd"}
+        />
+        <Project 
+            title={"EcoM Dashboard"}
+            date={"September 2024 - November 2024"}
+            roles={["Scrum Master", "Frontend Lead"]}
+            description={"An ESG dashboard web application assisting businesses and investors in exploring, monitoring and reporting ESG metrics. Completed as part of the capstone project for my degree."}
+            tech={["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"]}
+            shortname={"ecom"}
+        />
+        <Project 
+            title={"When2Eat"}
+            date={"July 2025 - September 2025"}
+            roles={["Training Lead"]}
+            description={"A full-stack web application for users to organise group meals with dining times and establishments based on user availability. Completed as part of the UNSW DevSoc Training Program."}
+            tech={["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"]}
+            shortname={"w2e"}
+        />
+        <Project 
+            title={"Portfolio Website"}
+            date={"March 2026"}
+            roles={[]}
+            description={"This site here, made to showcase projects I have undertaken using various technologies. Static site deployed to GitHub Pages."}
+            tech={["HTML", "CSS", "Astro"]}
+            shortname={"pw"}
+        />
+    </div>
+</section>
+
+<style>
+    .project-listings {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+</style>

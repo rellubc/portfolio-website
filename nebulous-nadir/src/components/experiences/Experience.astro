@@ -1,0 +1,100 @@
+---
+interface Props {
+    title: string,
+    date: string,
+    roles: string[],
+    shortname: string
+}
+
+const { title, date, roles, shortname } = Astro.props as Props
+
+const words = title.split(" ")
+const midpoint = Math.ceil(words.length / 2)
+const first = words.slice(0, midpoint).join(" ")
+const second = words.slice(midpoint).join(" ")
+
+const imageUrl = shortname === 'devsoc' ? `/website/${shortname}icon.png` : `/website/${shortname}icon.jpg`
+---
+
+
+<div class="experience-listing">
+    <div class="experience-listing-icon">
+        <img src={imageUrl} alt={title} />
+    </div>
+    <div class="experience-listing-details">
+        <div>
+            <h4>
+                <span class="title-first">{first}</span>
+                <span class="title-second">{second}</span>
+            </h4>
+            <div class="experience-listing-roles">
+                {roles.map((role) => <p class="experience-listing-role">{role}</p>)}
+            </div>
+        </div>
+        <p class="experience-listing-date">{date}</p>
+    </div>
+</div>
+
+<style>
+    p {
+        color: var(--secondary-colour);
+    }
+
+    .experience-listing {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+
+    .experience-listing + .experience-listing {
+        border-top: 1px solid var(--card-colour);
+    }
+
+    .experience-listing-icon {
+        width: 48px;
+        height: 48px;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        border: 1px solid var(--secondary-colour);
+        border-radius: 999px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .experience-listing-details {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    .experience-listing-role {
+        font-size: 0.85rem;
+    }
+
+    .experience-listing-date {
+        font-size: 0.80rem;
+        text-align: right;
+    }
+
+    .title-first {
+        color: var(--primary-accent);
+    }
+
+    .title-second {
+        color: var(--secondary-colour);
+    }
+</style>

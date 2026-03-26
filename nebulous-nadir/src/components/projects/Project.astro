@@ -1,0 +1,135 @@
+---
+import TechList from '../about/TechList.astro'
+
+interface Props {
+    title: string,
+    date: string,
+    roles: string[],
+    description: string,
+    tech: string[],
+    shortname: string
+}
+
+const { title, date, roles, description, tech, shortname } = Astro.props as Props
+
+const words = title.split(" ")
+const midpoint = Math.ceil(words.length / 2)
+const first = words.slice(0, midpoint).join(" ")
+const second = words.slice(midpoint).join(" ")
+
+const imageUrl = `/website/${shortname}0.png`
+---
+
+<div class="project-listing">
+    <div class="project-listing-content">
+        <h3>
+            <span class="title-first">{first}</span>
+            <span class="title-second">{second}</span>
+        </h3>
+        <div class="project-listing-meta">
+            <p class="project-listing-date">{date}</p>
+            <div class="project-listing-roles">
+                {roles.map((role) => <p class="project-listing-role">{role}</p>)}
+            </div>
+        </div>
+        <p class="project-listing-description">{description}</p>
+        <TechList tech={tech} />
+    </div>
+    <div class="project-listing-image">
+        <img src={imageUrl} alt={title + " screenshot"} />
+    </div>
+</div>
+
+<style>
+    .project-listing {
+        width: 100%;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+        border: 1px solid var(--secondary-colour);
+        border-radius: 12px;
+        
+        transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .title-first {
+        color: var(--secondary-colour);
+        font-size: 1.25rem;
+        font-weight: 800;
+    }
+
+    .title-second {
+        color: var(--primary-accent);
+        font-size: 1.25rem;
+        font-weight: 800;
+    }
+
+    .project-listing:hover {
+        border-color: var(--primary-colour);
+    }
+
+    .project-listing-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 2rem;
+    }
+
+    .project-listing-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .project-listing-date {
+        font-size: 0.8rem;
+        color: var(--secondary-colour);
+    }
+
+    .project-listing-roles {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .project-listing-role {
+        background: #fff;
+        color: var(--primary-accent);
+        font-size: 0.75rem;
+        text-align: center;
+
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--primary-accent);
+        border-radius: 999px;
+
+        transition: all 0.2s ease-in-out
+    }
+
+    .project-listing-role:hover {
+        color: var(--secondary-accent);
+        border-color: var(--secondary-accent);
+    }
+
+    .project-listing-description {
+        color: var(--secondary-colour);
+        line-height: 1.8;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-listing-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 12px 12px 0;
+        }
+    }
+</style>

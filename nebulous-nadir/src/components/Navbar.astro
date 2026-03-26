@@ -1,0 +1,77 @@
+<nav>
+    <div class="nav-logo">
+        <a href="#rt">RT</a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="/website/ryan_tran_resume.pdf" download="ryan_tran_resume" class="btn btn-secondary"><i class="fa-regular fa-file-pdf"></i> Resume</a></li>
+    </ul>
+
+    <div class="alt-nav-logo">
+        <a href="#rt">RT</a>
+        <a href="/website/ryan_tran_resume.pdf" download="ryan_tran_resume" class="btn btn-secondary"><i class="fa-regular fa-file-pdf"></i> Resume</a>
+    </div>
+
+    <ul class="alt-nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+    </ul>
+</nav>
+
+<style>
+    nav {
+        max-width: var(--max-width);
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        gap: 2rem;
+
+        padding: 1rem 2rem;
+        margin: auto;
+    }
+
+    .nav-logo {
+        a {
+            color: var(--primary-accent);
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        a:hover {
+            color: var(--secondary-accent);
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .alt-nav-logo {
+        width: 100%;
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+
+        a:first-child {
+            color: var(--primary-accent);
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        a:hover {
+            color: var(--secondary-accent);
+        }
+    }
+
+    .alt-nav-links {
+        display: none;
+        align-items: center;
+        gap: 2rem;
+    }
+</style>

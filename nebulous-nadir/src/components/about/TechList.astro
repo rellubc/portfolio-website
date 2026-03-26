@@ -1,0 +1,23 @@
+---
+import TechItem from '../shared/TechItem.astro'
+
+interface Props {
+    tech: string[],
+}
+
+const { tech } = Astro.props as Props
+---
+
+<ul class="tech-list">
+    {tech.map((item) => (
+        <TechItem tech={item} />
+    ))}
+</ul>
+
+<style>
+    .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+</style>

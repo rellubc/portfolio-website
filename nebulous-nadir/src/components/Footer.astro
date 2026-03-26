@@ -1,0 +1,64 @@
+<div class="footer-content">
+    <ul class="footer-socials">
+        <li><a href="https://github.com/rellubc" target="_blank" rel="noopener" aria-label="GitHub"><i class="devicon-github-original"></i></a></li>
+        <li><a href="https://linkedin.com/in/ryantran847" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="devicon-linkedin-plain"></i></a></li>
+        <li><a href="mailto:ryan.tran231@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a></li>
+        <li><a href="ryan_tran_resume.pdf" download="ryan_tran_resume" aria-label="Resume"><i class="fa-regular fa-file-pdf"></i></a></li>
+    </ul>
+    <ul class="footer-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+    </ul>
+</div>
+<p class="footer-copy">Built with HTML, CSS and Astro</p>
+
+<style>
+    p {
+        color: var(--secondary-colour);
+    }
+
+    .footer-content {
+        max-width: var(--max-width);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin: 0 auto;
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 1rem;
+
+        a {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 1px solid var(--secondary-colour);
+            border-radius: 999px;
+
+            transition: all 0.2s ease-in-out;
+        }
+
+        a:hover {
+            border: 1px solid var(--primary-colour);
+        }
+    }
+
+    .footer-nav {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .footer-copy {
+        max-width: var(--max-width);
+        font-size: 0.8rem;
+        text-align: center;
+
+        margin: 1rem auto;
+    }
+</style>

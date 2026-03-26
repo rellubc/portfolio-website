@@ -1,0 +1,24 @@
+---
+const { label, title } = Astro.props
+---
+
+<p>{label}</p>
+<h2 class="section-title">{title}</h2>
+
+<style>
+    p {
+        color: var(--secondary-accent);
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+        font-weight: 800;
+
+        margin-bottom: 1rem;
+    }
+</style>

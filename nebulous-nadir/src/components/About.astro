@@ -1,0 +1,131 @@
+---
+import SectionHeader from "./shared/SectionHeader.astro";
+import TechList from "./about/TechList.astro";
+
+const languages: string[] = ["HTML", "CSS", "C", "JavaScript", "TypeScript", "Java", "Shell", "Python", "Rust", "C++", "C#"]
+
+const frameworks: string[] = ["Node.js", "Express", "React", "Tailwind CSS", "Angular", "Next.js", "ASP.NET Core", "Astro", "Svelte"]
+
+const tools: string[] = ["GitHub", "PostgreSQL", "Docker", "Jira", "Confluence", "MongoDB", "Supabase", "MySQL"]
+---
+
+<section id="about">
+    <SectionHeader label="About" title="A bit about me"/>
+    <div class="about-intro">
+        <p>I have a strong interest in full-stack development with a focus on backend development. I love building systems that are scalable, reliable and elegant.</p>
+        <p>In my free time, I love exercising in all forms - particularly calisthenics, bouldering and tennis. I also enjoy being surrounded by nature.</p>
+    </div>
+
+    <div class="about-images">
+        <img src="/website/kiama.jpg" alt="Kiama Lighthouse">
+        <img src="/website/sun.jpg" alt="Sydney Sunset">
+        <img src="/website/struggle.png" alt="Bouldering">
+        <img src="/website/wombat.jpg" alt="Wombat">
+    </div>
+
+    <div class="about-tech">
+        <p>I love learning and working with new technologies. Below are some I've used so far:</p>
+        <div class="tech-categories">
+            <div class="tech-category">
+                <h3>Languages</h3>
+                <div class="tech-category-divider"/>
+                <TechList tech={languages} />
+            </div>
+            <div class="tech-category">
+                <h3>Frameworks</h3>
+                <div class="tech-category-divider"/>
+                <TechList tech={languages} />
+            </div>
+            <div class="tech-category">
+                <h3>Tools</h3>
+                <div class="tech-category-divider"/>
+                <TechList tech={languages} />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about-intro {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-images {
+        display: grid;
+        grid-template-columns: repeat(4, 256px);
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        
+        margin-bottom: 2rem;
+
+        img {
+            width: 256px;
+            height: 256px;
+            object-fit: cover;
+            
+            border-radius: 12px;
+            
+            transition: border 0.2s ease-in-out;
+        }
+    }
+
+    .about-tech {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .tech-categories {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .tech-category {
+        padding: 2rem;
+        border: 1px solid var(--secondary-colour);
+        border-radius: 12px;
+
+        transition: all 0.2s ease-in-out;
+
+        h3 {
+            color: var(--primary-accent);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    .tech-category:hover {
+        border: 1px solid var(--primary-colour);
+
+        h3 {
+            color: var(--secondary-accent);
+        }
+    }
+
+    .tech-category-divider {
+        width: 100%;
+        height: 1px;
+        background: var(--light-accent);
+
+        margin: 1rem 0;
+
+        transition: all 0.2s ease-in-out;
+    }
+
+    .tech-category:hover .tech-category-divider {
+        background: var(--secondary-accent);
+    }
+
+    p {
+        color: var(--secondary-colour);
+        line-height: 1.8;
+    }
+</style>

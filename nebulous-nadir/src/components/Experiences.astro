@@ -1,0 +1,94 @@
+---
+import Experience from "./experiences/Experience.astro";
+import SectionHeader from "./shared/SectionHeader.astro";
+---
+
+<section id="experience">
+    <SectionHeader label="Experience" title="My background" />
+
+    <div class="experience-categories">
+        <div class="experience-category">
+            <h3>Work Experience</h3>
+            <div class="experience-category-divider" />
+            <Experience 
+                title={"Baked by Dora: Bakery & Cafe"}
+                date={"January 2025 - Present"}
+                roles={["Barista"]}
+                shortname={"bbd"}
+            />
+        </div>
+        <div class="experience-category">
+            <h3>Volunteering Experience</h3>
+            <div class="experience-category-divider" />
+            <Experience 
+                title={"Training Program @ UNSW DevSoc"}
+                date={"July 2025 - September 2025"}
+                roles={["Training Lead"]}
+                shortname={"devsoc"}
+            />
+        </div>
+        <div class="experience-category">
+            <h3>Education</h3>
+            <div class="experience-category-divider" />
+            <Experience 
+                title={"University of New South Wales (UNSW)"}
+                date={"February 2022 - August 2025"}
+                roles={["Bachelor of Science (Computer Science) w/ Distinction"]}
+                shortname={"unsw"}
+            />
+            <Experience 
+                title={"Sydney Technical High School"}
+                date={"January 2016 - September 2021"}
+                roles={["HSC"]}
+                shortname={"sths"}
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+    .experience-categories {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .experience-category {
+        padding: 2rem;
+        border: 1px solid var(--secondary-colour);
+        border-radius: 12px;
+
+        transition: all 0.2s ease-in-out;
+
+        h3 {
+            color: var(--primary-accent);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    .experience-category:hover {
+        border: 1px solid var(--primary-colour);
+
+        h3 {
+            color: var(--secondary-accent);
+        }
+    }
+
+    .experience-category-divider {
+        width: 100%;
+        height: 1px;
+        background: var(--light-accent);
+
+        margin: 1rem 0;
+
+        transition: all 0.2s ease-in-out;
+    }
+
+    .experience-category:hover .experience-category-divider {
+        background: var(--secondary-accent);
+    }
+</style>

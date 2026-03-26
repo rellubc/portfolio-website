@@ -1,0 +1,109 @@
+<section id="rt">
+    <div class="me-content">
+        <div class="me-intro">
+            <p class="me-greeting">Hi! <span class="wave">&#128075;</span> I'm</p>
+            <h1 class="me-name">Ryan <span class="me-name-accent">Tran.</span> <span class="smiley">&#128522;</span></h1>
+            <p class="me-summary">Computer Science graduate & aspiring software engineer with a passion for full-stack development with a focus on backend systems.</p>
+        </div>
+        <div class="me-image">
+            <img src="/website/me.jpg" alt="Ryan Tran">
+        </div>
+    </div>
+</section>
+
+<style>
+    #rt {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 2rem;
+    }
+
+    .me-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+    }
+
+    .me-intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .me-greeting {
+        color: var(--secondary-colour);
+    }
+
+    .wave {
+        display: inline-block;
+        transform-origin: bottom right;
+        animation: wave 1s ease-in-out infinite;
+    }
+
+    .me-name {
+        font-size: 5rem;
+        font-weight: 800;
+        
+        margin-bottom: 1.5rem;
+    }
+
+    .me-name-accent {
+        position: relative;
+        color: var(--secondary-accent);
+        font-weight: 800;
+        animation: pulse-glow 1.5s ease-in-out infinite;
+        text-shadow:
+            0 0 1px var(--secondary-accent),
+            0 0 2px var(--secondary-accent),
+            0 0 5px var(--secondary-accent);
+    }
+
+    .smiley {
+        display: inline-block;
+        animation: bob 1s ease-in-out infinite;
+    }
+
+    .me-summary {
+        max-width: 450px;
+        color: var(--secondary-colour);
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .me-image {
+        position: relative;
+        width: 360px;
+        height: 360px;
+        overflow: visible;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+        box-shadow: 0 0 40px var(--shadow-accent);
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    .me-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        border-radius: 50%;
+        box-shadow: 0 0 40px var(--dark-accent);
+
+        opacity: 0;
+        animation: pulse 2s ease-in-out infinite;
+    }
+</style>

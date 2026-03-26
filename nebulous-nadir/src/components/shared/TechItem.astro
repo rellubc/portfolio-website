@@ -1,0 +1,38 @@
+---
+const getIcon = (skill: string) => {
+    let formatted = skill.toLowerCase().replaceAll(".", "").replaceAll(" ","").replaceAll("#", "sharp").replaceAll("+", "plus")
+    if (formatted === "aspnetcore") formatted = "dotnetcore"
+    else if (formatted === "shell") formatted = "bash"
+    else if (formatted === "html") formatted = "html5"
+    else if (formatted === "css") formatted = "css3"
+    if (formatted === "express") return "devicon-express-original"
+    return `devicon-${formatted}-plain`
+}
+
+const { tech } = Astro.props
+---
+
+<li class="tech-item"><i class={getIcon(tech)}></i>{tech}</li>
+
+<style>
+    .tech-item {
+        background: #fff;
+        color: var(--secondary-colour);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        font-size: 0.9rem;
+
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--secondary-colour);
+        border-radius: 100px;
+
+        transition: all 0.2s ease-in-out;
+    }
+
+    .tech-item:hover {
+        color: var(--primary-colour);
+        border: 1px solid var(--primary-colour);
+    }
+</style>
