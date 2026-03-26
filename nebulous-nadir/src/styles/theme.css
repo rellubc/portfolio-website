@@ -1,0 +1,36 @@
+html.dark {
+    --bg: #111;
+    --header-bg: #111;
+
+    --primary-colour: #fff;
+    --secondary-colour: #ccc;
+    --card-colour: #1a1a1a;
+
+    --primary-accent: #8b5cf6;
+    --secondary-accent: #a78bfa;
+    --dark-accent: #c4b6fd;
+    --light-accent: #5b21b6;
+    --tint-accent: #1f1b2e;
+    --yellow-accent: #faac15;
+    --green-accent: #9caf88;
+    --pink-accent: #fbcfe8;
+
+    --shadow-accent: #8b5cf61f;
+    --shadow-accent-hover: #a78bfa52;
+}
+
+html {
+    background: var(--bg);
+    color: var(--primary-colour);
+    transition: all 0.3s;
+}
+
+header {
+    background: #fff;
+
+    transition: all 0.3s;
+}
+
+header.dark {
+    background: #111;
+}

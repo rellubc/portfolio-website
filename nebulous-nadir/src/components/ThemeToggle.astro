@@ -1,0 +1,68 @@
+<li id="light-mode" class="light-mode"><i class="fa-regular fa-sun"></i></li>
+<li id="dark-mode" class="dark-mode"><i class="fa-regular fa-moon"></i></li>
+
+<style>
+    .light-mode, .dark-mode {
+        cursor: pointer;
+    }
+
+    .hidden {
+        display: none;
+    }
+    
+    .light-mode i, .dark-mode i {
+        color: var(--secondary-colour);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .light-mode i:hover, .dark-mode i:hover {
+        color: var(--primary-colour) !important;
+    }
+</style>
+
+<script is:inline>
+    let theme = (() => {
+        const localStorageTheme = localStorage?.getItem("theme") ?? '';
+        if (['dark', 'light'].includes(localStorageTheme)) {
+            return localStorageTheme
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+        }
+            return 'light'
+    })();
+
+    const applyTheme = (theme) => {
+        console.log(theme)
+        console.log(document.getElementById("light-mode"))
+        console.log(document.getElementById("dark-mode"))
+        console.log(document.querySelector('header').classList)
+
+
+        if (theme === 'light') {
+            document.documentElement.classList.remove('dark')
+            document.querySelector('header')?.classList.remove('dark')
+
+            document.getElementById("light-mode").classList.add("hidden")
+            document.getElementById("dark-mode").classList.remove("hidden")
+        } else {
+            document.documentElement.classList.add('dark')
+            document.querySelector('header')?.classList.add('dark')
+
+            document.getElementById("light-mode").classList.remove("hidden")
+            document.getElementById("dark-mode").classList.add("hidden")
+        }
+
+        localStorage.setItem('theme', theme)
+    }
+
+    applyTheme(theme)
+
+    const handleToggleClick = () => {
+        theme = theme === 'light' ? 'dark' : 'light'
+        applyTheme(theme)
+    }
+
+    document.getElementById("light-mode").addEventListener("click", handleToggleClick)
+    document.getElementById("dark-mode").addEventListener("click", handleToggleClick)
+</script>
