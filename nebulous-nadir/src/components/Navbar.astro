@@ -1,35 +1,29 @@
 ---
+import MenuToggle from "./MenuToggle.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <nav>
-    <div class="nav-logo">
+    <ul class="nav-logo">
         <a href="#rt">RT</a>
-    </div>
+    </ul>
 
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="/portfolio-website/ryan_tran_resume.pdf" download="ryan_tran_resume" class="btn btn-secondary"><i class="fa-regular fa-file-pdf"></i> Resume</a></li>
+    <div class="nav-cluster">
+        <ul id="nav-links" class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="/portfolio-website/ryan_tran_resume.pdf" download="ryan_tran_resume" class="btn btn-secondary"><i class="fa-regular fa-file-pdf"></i> Resume</a></li>
+        </ul>
         <ThemeToggle />
-    </ul>
-
-    <div class="alt-nav-logo">
-        <a href="#rt">RT</a>
-        <a href="/portfolio-website/ryan_tran_resume.pdf" download="ryan_tran_resume" class="btn btn-secondary"><i class="fa-regular fa-file-pdf"></i> Resume</a>
+        <MenuToggle />
     </div>
-
-    <ul class="alt-nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-    </ul>
 </nav>
 
 <style>
     nav {
         max-width: var(--max-width);
+        position: relative;
         display: flex;
         justify-content: space-between; 
         align-items: center;
@@ -42,7 +36,7 @@ import ThemeToggle from "./ThemeToggle.astro";
     .nav-logo {
         a {
             color: var(--primary-accent);
-            font-size: 2rem;
+            font-size: 2.48rem;
             font-weight: 800;
         }
 
@@ -51,31 +45,24 @@ import ThemeToggle from "./ThemeToggle.astro";
         }
     }
 
-    .nav-links {
+    .nav-cluster {
         display: flex;
         align-items: center;
         gap: 2rem;
     }
 
-    .alt-nav-logo {
-        width: 100%;
-        display: none;
-        justify-content: space-between;
+    .nav-links {
+        opacity: 1;
+
+        display: flex;
         align-items: center;
-
-        a:first-child {
-            color: var(--primary-accent);
-            font-size: 2rem;
-            font-weight: 800;
-        }
-
-        a:hover {
-            color: var(--secondary-accent);
-        }
+        gap: 2rem;
     }
 
-    .alt-nav-links {
-        display: none;
+    .nav-resume-theme {        
+        opacity: 1;
+
+        display: flex;
         align-items: center;
         gap: 2rem;
     }
